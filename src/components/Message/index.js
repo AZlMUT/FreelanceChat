@@ -9,7 +9,7 @@ import classNames from "classnames";
 Moment.locale('en');
 const Message = ({ avatar, user, text, date, isMe, isTyping, attachments }) => (
   <div className={classNames("message", { 
-    "message--isme": isMe, 
+    "message--isme": !isMe, 
     "message--is-typing": isTyping,
     "message--image": attachments && attachments.length === 1 })}>
     <div className="message__avatar">

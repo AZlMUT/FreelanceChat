@@ -1,40 +1,24 @@
 import React from 'react';
 import classNames from 'classnames';
 import format from 'date-fns/format';
-import isToday from 'date-fns/is_today';
+import isToday from 'date-fns/isToday';
 import { Link } from 'react-router-dom';
 
-import { IconReaded, Avatar } from '../';
+import { Avatar } from '../';
 
-const getMessageTime = createdAt => {
-  if (isToday(createdAt)) {
-    return format(createdAt, 'HH:mm');
-  } else {
-    return format(createdAt, 'DD.MM.YYYY');
-  }
-};
 
-const renderLastMessage = (message, userId) => {
-  let text = '';
-  if (!message.text && message.attachments.length) {
-    text = 'прикрепленный файл';
-  } else {
-    text = message.text;
-  }
 
-  return `${message.user._id === userId ? 'Вы: ' : ''}${text}`;
-};
 
 const DialogItem = ({
   _id,
   undread,
   created_at,
   text,
-  isMe,
-  currentDialogId,
+  isMe,//
+  currentDialogId,//
   partner,
   lastMessage,
-  userId,
+  userId,//
 }) => (
   <Link to={`/dialog/${_id}`}>
     <div
@@ -48,11 +32,10 @@ const DialogItem = ({
       <div className="dialogs__item-info">
         <div className="dialogs__item-info-top">
           <b>{partner.fullname}</b>
-          <span>{getMessageTime(lastMessage.createdAt)}</span>
+          <span>12:20</span>
         </div>
         <div className="dialogs__item-info-bottom">
-          <p>{renderLastMessage(lastMessage, userId)}</p>
-          {isMe && <IconReaded isMe={isMe} isReaded={lastMessage.readed} />}
+          <p>{text}</p>
           {lastMessage.undread > 0 && (
             <div className="dialogs__item-info-bottom-count">
               {lastMessage.undread > 9 ? '+9' : lastMessage.undread}

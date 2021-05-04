@@ -1,113 +1,159 @@
-.chat-input {
-  margin: 20px;
-  position: relative;
+$black: #000000;
+$cornflower-lilac: #ffaea9;
+$salmon: #ff7b73;
+$white: #ffffff;
+$your-pink: #ffcccc;
 
-  & > div:first-of-type {
-    display: flex;
-  }
 
-  &__smile-btn {
-    margin-right: 15px;
-  }
-
-  .ant-btn-circle {
-    i.anticon {
-      cursor: pointer;
-      font-size: 20px;
-    }
-  }
-
-  &__emoji-picker {
-    position: absolute;
-    bottom: 50px;
-    z-index: 1;
-  }
-
-  &__record-status {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    justify-content: center;
-    color: #f56b6b;
-
-    .stop-recording {
-      margin-left: 5px;
-      i {
-        svg {
-          position: relative;
-          top: -1px;
-          width: 14px;
-          height: 14px;
-        }
+.c-checkbox {
+  display: none;
+  &:checked + .c-formContainer {
+      .c-form {
+          width: 40em;
       }
-    }
 
-    &-bubble {
-      display: inline-block;
-      position: relative;
-      height: 10px;
-      width: 10px;
-      background-color: #f56b6b;
-      border-radius: 30px;
-      margin-right: 8px;
-      &::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 0;
-        height: 10px;
-        width: 10px;
-        background-color: rgba(245, 107, 107, 0.5);
-        border-radius: 30px;
-        animation: wave-animation 1s ease-in-out infinite;
-        transition: transform 0.15s ease-in-out;
-        transform: scale(1);
+      .c-form__toggle {
+          visibility: hidden;
+          opacity: 0;
+          transform: scale(0.7);
       }
-    }
-  }
 
-  &__attachments {
-    padding-top: 10px;
-    padding-left: 47px;
-  }
-
-  &__actions {
-    display: flex;
-    align-items: center;
-    width: 80px;
-    justify-content: space-between;
-    margin-left: 15px;
-
-    &-upload-btn {
-      cursor: pointer;
-      input {
-        cursor: pointer;
-      }
-      &:hover {
-        button {
+      .c-form__input,
+      .c-form__buttonLabel {
+          transition: 0.2s 0.1s;
+          visibility: visible;
           opacity: 1;
-        }
+          transform: scale(1);
       }
-    }
   }
 
-  input {
-    padding: 6px 11px 8px;
-    font-size: 14px;
-    &:focus {
-      box-shadow: none;
-    }
+  &:not(:checked),
+  &:checked {
+      + .c-formContainer .c-form__input:required:valid ~ .c-form__toggle::before {
+          content: 'Thank You! \1F60A';
+      }
+  }
+
+  &:not(:checked) + .c-formContainer {
+      .c-form__input:required:valid ~ .c-form__toggle {
+          pointer-events: none;
+          cursor: default;
+      }
   }
 }
 
-@keyframes wave-animation {
-  0% {
-    transform: scale(1);
+.c-formContainer,
+.c-form,
+.c-form__toggle {
+  width: 20em;
+  height: 4em;
+}
+
+.c-formContainer {
+  position: relative;
+  font-weight: 700;
+}
+
+.c-form,
+.c-form__toggle {
+  position: absolute;
+  border-radius: 6.25em;
+  background-color: $white;
+  transition: 0.2s;
+}
+
+.c-form {
+  left: 100%;
+  transform: translateX(-50%);
+  padding: 0.625em;
+  box-sizing: border-box;
+  box-shadow: 0 0.125em 0.3125em rgba($black, 0.3);
+
+  // position form inputs
+  display: flex;
+  justify-content: center;
+}
+
+.c-form__toggle {
+  color: $salmon;
+  top: 0;
+  cursor: pointer;
+  z-index: 1;
+
+  // position message
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &::before {
+      font-size: 1em;
+      content: attr(data-title);
   }
-  50% {
-    transform: scale(1.5);
+}
+
+.c-form__input,
+.c-form__button {
+  font: inherit;
+  border: 0;
+  outline: 0;
+  border-radius: 5em;
+  box-sizing: border-box;
+  padding: 0px 250px 0px 10px;
+}
+
+.c-form__input,
+.c-form__buttonLabel {
+  font-size: 1.2em;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.7);
+  transition: 0s;
+}
+
+.c-form__input {
+  color: $your-pink;
+  height: 100%;
+  width: 100%;
+  padding: 0 0.714em;
+
+  &::placeholder {
+      color: currentColor;
   }
-  100% {
-    transform: scale(1);
+
+  &:required:valid {
+      color: $salmon;
+
+      + .c-form__buttonLabel {
+          color: $white;
+
+          &::before {
+              pointer-events: initial;
+          }
+      }
   }
+}
+
+.c-form__buttonLabel {
+  color: $cornflower-lilac;
+  height: 100%;
+  width: auto;
+  
+  // accepts click events
+  &::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      cursor: pointer;
+  }
+}
+
+.c-form__button {
+  color: inherit;
+  padding: 0;
+  height: 100%;
+  width: 5em;
+  background-color: $salmon;
+  padding: 0px 100px 0px 10px;
 }

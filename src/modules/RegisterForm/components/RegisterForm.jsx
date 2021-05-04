@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 class RegisterForm extends Component {
   render() {
-    const success = true;
+    const success = false;
     return (
       <div>
         <div className="auth__top">

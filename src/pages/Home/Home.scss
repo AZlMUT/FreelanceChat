@@ -4,6 +4,22 @@
     padding:15px;
     border-radius: 10px;
     margin: 10px;
-    overflow-y: auto;
+    
     height: 900px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.contentChat{
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+.contentChat::-webkit-scrollbar { 
+    display: none;
+}
+
+.MyBody{
+    display: flex;
 }
