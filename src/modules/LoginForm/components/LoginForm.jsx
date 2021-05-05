@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Form, Input} from "antd";
+import { Form, Input } from "antd";
 import { Button, Block } from "components";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
   render() {
@@ -45,7 +45,7 @@ class LoginForm extends Component {
                 className="login-form-button"
                 size="large"
               >
-                Войти в аккаунт
+                <Link to="/im">Войти в аккаунт</Link>
               </Button>
             </Form.Item>
             <Link className="auth__register-link" to="/register">

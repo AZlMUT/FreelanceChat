@@ -21,7 +21,7 @@ const ChatInput = () => {
           <label
             class="c-form__toggle"
             for="checkbox"
-            data-title="Notify me"
+            data-title="Нажми на меня"
           ></label>
         </form>
       </div>

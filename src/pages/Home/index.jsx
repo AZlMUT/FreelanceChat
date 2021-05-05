@@ -2,10 +2,6 @@ import React from "react";
 import { Message, Dialogs, ChatInput, MyData } from "components";
 import "./Home.scss";
 
-const ava = (id) => {
-  return `https://source.unsplash.com/100x100/?random=${id}&face,portrait,family`;
-}
-
 const Home = () => (
   <div className="MyBody">
     <div>
@@ -18,24 +14,21 @@ const Home = () => (
     </div>
 
     <div className="home">
-      <div className="contentChat">
-        <section>
-
-          {MyData.msg.map(propers => (
-            <Message
-            {...propers}
-            />
-          ))}
-
-
-        </section>
+      <div className="home--header">
+      
       </div>
 
-      <div>
-        <ChatInput/>
+      <div className="contentChat">
+        <section>
+          {MyData.msg.map((propers) => (
+            <Message {...propers} />
+          ))}
+        </section>
+      </div>
+      <div className="home--bottom">
+        <ChatInput />
       </div>
     </div>
   </div>
 );
-
 export default Home;
