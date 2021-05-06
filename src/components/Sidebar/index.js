@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import { Button, Modal, Select, Input, Form } from "antd";
 import { TeamOutlined, FormOutlined } from "@ant-design/icons";
 import { Dialogs, MyData } from "components";
@@ -17,7 +17,7 @@ const Sidebar = ({
   const options = users.map((user) => (
     <Option key={user._id}>{user.fullname}</Option>
   ));
-
+  const [value,setValue] = useState("");
   return (
     <div className="chat__sidebar">
       <div className="chat__sidebar-header">
@@ -29,6 +29,7 @@ const Sidebar = ({
       </div>
       <div className="dialogs__search">
         <Input
+          onChange={e => setValue(e.target.value)}
           placeholder="Поиск среди контактов"
           enterButton="Search"
           size="large"

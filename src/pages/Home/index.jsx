@@ -18,7 +18,7 @@ const Home = ({ selectedUser }) => (
 
     <div className="home">
       <div className="home--header">
-        <div>❤️Моё солнышко❤️</div>
+        <div>Антоха</div>
         <p>
           <CheckCircleTwoTone twoToneColor="#7bbfff" />В сети
         </p>

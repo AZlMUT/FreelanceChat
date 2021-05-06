@@ -4,13 +4,8 @@ import classNames from 'classnames';
 import { Popover, Button } from 'antd';
 import { Emoji } from 'emoji-mart';
 import reactStringReplace from 'react-string-replace';
-import { convertCurrentTime, isAudio } from 'utils/helpers';
+import { isAudio } from 'utils/helpers';
 import { EyeOutlined, EllipsisOutlined} from '@ant-design/icons';
-
-
-import waveSvg from 'assets/img/wave.svg';
-import playSvg from 'assets/img/play.svg';
-import pauseSvg from 'assets/img/pause.svg';
 
 import { Time, IconReaded, Avatar, MessageAudio } from 'components';
 
@@ -20,6 +15,7 @@ import './Message.scss';
 const Message = ({
   avatar,
   user,
+  isAudios,
   text,
   date,
   isMe,
@@ -30,7 +26,7 @@ const Message = ({
   setPreviewImage,
 }) => {
   const renderAttachment = item => {
-    if (item.ext !== 'webm') {
+    if (item.text !== 'webm') {
       return (
         <div
           key={item._id}
@@ -53,8 +49,8 @@ const Message = ({
       className={classNames('message', {
         'message--isme': isMe,
         'message--is-typing': isTyping,
-        'message--is-audio': isAudio(attachments),
-        'message--image': !isAudio(attachments) && attachments && attachments.length === 1 && !text,
+        'message--is-audio': isAudios,
+        'message--image': !isAudios && attachments && attachments.length === 1 && !text,
       })}>
       <div className="message__content">
         <IconReaded isMe={isMe} isReaded={readed} />

@@ -7,7 +7,6 @@ import "./Dialogs.scss";
 
 const Dialogs = ({ items, userId, onSearch, inputValue, currentDialogId }) => (
   <div className="dialogs">
-    
     <div>
     {items.length ? (
       items.map((item) => (

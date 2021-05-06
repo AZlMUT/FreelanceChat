@@ -59,10 +59,23 @@ const MyData = {
       avatar: ava(2),
       date: "2020-12-04 16:22:00",
       isMe: false,
+      isAudios:true,
+      attachments:[
+        {
+          text:"webm",
+          filename: "1",
+          url: "",
+        },
+      ]
+    },
+    {
+      avatar: ava(2),
+      date: "2020-12-04 16:22:00",
+      isMe: false,
       attachments:[
         {
           filename: "1",
-          url: ava(10),
+          url: ava(12),
         },
       ]
     },
@@ -133,12 +146,12 @@ const MyData = {
     {
       _id: "125",
       undread: 5,
-      text: "Сладких снов родная❤️❤️❤️ И удачи в завтрашнем дне😘🔥",
+      text: "удачи в завтрашнем дне😘🔥",
       isMe: true,
       currentDialogId: myProps.currentChat,
       partner: {
         isOnline: true,
-        fullname: "❤️Моё солнышко❤️",
+        fullname: "Антоха",
         avatar: ava(2),
       },
       lastMessage: { unread: 10 },

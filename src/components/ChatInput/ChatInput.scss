@@ -4,20 +4,22 @@
   align-items: center;
   justify-content: space-around;
   padding: 0px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background: white
 }
 
 
 .c-form__input{
   font: inherit;
   outline: 0;
-  border-radius: 10px;
-  border-width: 1px;
+  border-width: 0px;
   font-size: 15px;
   opacity: 1;
   visibility: visible;
   font-weight: 700;
   height: 50px;
-  width: 90%;
+  width: 77%;
   padding-left: 20px;
   color: #222222;
 }

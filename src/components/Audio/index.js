@@ -1,9 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import PropTypes from "prop-types";
+import { Button } from "antd";
+import { PauseCircleTwoTone, PlayCircleTwoTone} from "@ant-design/icons";
 import { convertCurrentTime} from 'utils/helpers';
 import waveSvg from 'assets/img/wave.svg';
-import playSvg from 'assets/img/play.svg';
-import pauseSvg from 'assets/img/pause.svg';
 
 const MessageAudio = ({ audioSrc }) => {
     const audioElem = useRef(null);
@@ -53,17 +53,11 @@ const MessageAudio = ({ audioSrc }) => {
   
     return (
       <div className="message__audio">
-        <audio ref={audioElem} src={audioSrc} preload="auto" />
+        <audio ref={audioElem} src="../../assets/Comatose   Skillet.mp3" preload="auto" />
         <div className="message__audio-progress" style={{ width: progress + '%' }} />
         <div className="message__audio-info">
           <div className="message__audio-btn">
-            <button onClick={togglePlay}>
-              {isPlaying ? (
-                <img src={pauseSvg} alt="Pause svg" />
-              ) : (
-                <img src={playSvg} alt="Play svg" />
-              )}
-            </button>
+            <Button onClick={togglePlay} shape="circle" icon={isPlaying ? <PauseCircleTwoTone /> : <PlayCircleTwoTone />} size="large" />
           </div>
           <div className="message__audio-wave">
             <img src={waveSvg} alt="Wave svg" />
