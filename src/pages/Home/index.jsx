@@ -1,21 +1,30 @@
 import React from "react";
-import { Message, Dialogs, ChatInput, MyData } from "components";
+import { Message, Sidebar, ChatInput, MyData } from "components";
+import { CheckCircleTwoTone } from '@ant-design/icons';
 import "./Home.scss";
+import "../../styles/layouts/_chat.scss"
 
-const Home = () => (
-  <div className="MyBody">
-    <div>
-      <Dialogs
-        items={MyData.dialogs}
-        userId="123"
-        inputValue=""
-        currentDialogId="125"
-      />
-    </div>
+const Home = (
+  {
+    selectedUser
+  }
+) => (
+  <div className="chat">
+    <Sidebar 
+    className="chat__sidebar"
+    visible={false}
+    inputValue=""
+    messageText=""
+    selectedUserId="125"
+    users={[]}
+    onShow
+    />
 
     <div className="home">
       <div className="home--header">
-      
+          <div>❤️Моё солнышко❤️</div>
+          <p><CheckCircleTwoTone twoToneColor="#7bbfff"/>В сети</p>
+          <hr/>
       </div>
 
       <div className="contentChat">

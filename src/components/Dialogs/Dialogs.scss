@@ -2,12 +2,8 @@
 
 @media (max-width: 5000px) {
 	.dialogs {
-    background-color: #7bbfff;
-    border-radius: 10px;
-    margin: 10px 0px 10px 10px;
-    padding: 10px 10px 10px 5px;
     &__search {
-      margin: 5px 0px 20px 5px;
+      margin: 0px 0px 20px 5px;
       .ant-input {
         background-color: #f7f8f9;
         border: 0;
@@ -123,7 +119,7 @@
 }
 
 
-@media (max-width: 730px) {
+@media (max-width: 230px) {
 	.dialogs {
     background-color: #7bbfff;
     border-radius: 10px;

@@ -1,30 +1,17 @@
 import React from "react";
 import "./ChatInput.scss";
+import { Button } from "antd";
+import { SendOutlined } from "@ant-design/icons";
 
 const ChatInput = () => {
   return (
-    <div>
-      <input className="c-checkbox" type="checkbox" id="checkbox"/>
-      <div class="c-formContainer">
-        <form class="c-form" action="">
-          <input
+    <div class="c-form__input">
+      <input
             class="c-form__input"
             placeholder="Введите текст"
             type="text"
             required
           />
-          <label class="c-form__buttonLabel" for="checkbox">
-            <button class="c-form__button" type="button">
-              Отправить
-            </button>
-          </label>
-          <label
-            class="c-form__toggle"
-            for="checkbox"
-            data-title="Нажми на меня"
-          ></label>
-        </form>
-      </div>
     </div>
   );
 };

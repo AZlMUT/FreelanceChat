@@ -1,3 +1,26 @@
+.chat__sidebar{
+  background-color: #7bbfff;
+    border-radius: 10px;
+    margin: 10px 0px 10px 10px;
+    padding: 10px 10px 10px 5px;
+}
+
+.chat__sidebar-header{
+  user-select: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 10px 0px 10px;
+  .side-text{
+    padding-left: 25px;
+  }
+  button{
+    background-color: #7bbfff;
+    border-width: 0px;
+  }
+}
+
 .add-dialog-form {
   .ant-form-item {
     margin-bottom: 0;

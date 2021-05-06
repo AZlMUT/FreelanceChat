@@ -1,74 +1,70 @@
-import React from 'react';
-import { Icon, Button, Modal, Select, Input, Form } from 'antd';
-import { Dialogs } from 'containers';
-
-import './Sidebar.scss';
+import React from "react";
+import { Button, Modal, Select, Input, Form } from "antd";
+import { TeamOutlined, FormOutlined } from "@ant-design/icons";
+import { Dialogs, MyData } from "components";
+import "./Sidebar.scss";
 
 const { Option } = Select;
 const { TextArea } = Input;
 
 const Sidebar = ({
-  user,
   visible,
   inputValue,
   messageText,
   selectedUserId,
-  isLoading,
   users,
-  onShow,
-  onClose,
-  onSearch,
-  onChangeInput,
-  onSelectUser,
-  onChangeTextArea,
-  onModalOk,
 }) => {
-  const options = users.map(user => <Option key={user._id}>{user.fullname}</Option>);
+  const options = users.map((user) => (
+    <Option key={user._id}>{user.fullname}</Option>
+  ));
 
   return (
     <div className="chat__sidebar">
       <div className="chat__sidebar-header">
         <div>
-          <Icon type="team" />
-          <span>Список диалогов</span>
+          <Button shape="round" icon={<TeamOutlined />} />
+          <span className="side-text">Список диалогов</span>
         </div>
-        <Button onClick={onShow} type="link" shape="circle" icon="form" />
+        <Button shape="round" icon={<FormOutlined />} />
       </div>
-
+      <div className="dialogs__search">
+        <Input
+          placeholder="Поиск среди контактов"
+          enterButton="Search"
+          size="large"
+          value=""
+        />
+      </div>
       <div className="chat__sidebar-dialogs">
-        <Dialogs userId={user && user._id} />
+        <Dialogs
+          items={MyData.dialogs}
+          userId={selectedUserId}
+          inputValue=" "
+          currentDialogId="125"
+        />
       </div>
       <Modal
         title="Создать диалог"
         visible={visible}
-        onCancel={onClose}
         footer={[
-          <Button key="back" onClick={onClose}>
-            Закрыть
-          </Button>,
-          <Button
-            disabled={!messageText}
-            key="submit"
-            type="primary"
-            loading={isLoading}
-            onClick={onModalOk}>
+          <Button key="back">Закрыть</Button>,
+          <Button key="submit" type="primary">
             Создать
           </Button>,
-        ]}>
+        ]}
+      >
         <Form className="add-dialog-form">
           <Form.Item label="Введите имя пользователя или E-Mail">
             <Select
               value={inputValue}
-              onSearch={onSearch}
-              onChange={onChangeInput}
-              onSelect={onSelectUser}
               notFoundContent={null}
-              style={{ width: '100%' }}
+              style={{ width: "100%" }}
               defaultActiveFirstOption={false}
               showArrow={false}
               filterOption={false}
               placeholder="Введите имя пользователя или почту"
-              showSearch>
+              showSearch
+            >
               {options}
             </Select>
           </Form.Item>
@@ -76,7 +72,6 @@ const Sidebar = ({
             <Form.Item label="Введите текст сообщения">
               <TextArea
                 autosize={{ minRows: 3, maxRows: 10 }}
-                onChange={onChangeTextArea}
                 value={messageText}
               />
             </Form.Item>
