@@ -1,7 +1,5 @@
 import React from 'react';
 import classNames from 'classnames';
-import format from 'date-fns/format';
-import isToday from 'date-fns/isToday';
 import { Link } from 'react-router-dom';
 
 import { Avatar } from '../';
@@ -27,7 +25,7 @@ const DialogItem = ({
         'dialogs__item--selected': currentDialogId === _id,
       })}>
       <div className="dialogs__item-avatar">
-        <Avatar user={partner} />
+        <Avatar avatar={partner.avatar} />
       </div>
       <div className="dialogs__item-info">
         <div className="dialogs__item-info-top">

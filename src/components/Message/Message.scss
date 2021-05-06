@@ -1,62 +1,57 @@
+@import '~styles/variables';
+
 .message {
   $self: &;
-  display: flex;
-  margin-bottom: 5px;
-  &__content {    
-    margin-bottom: 10px;
+
+  &__content {
+    display: flex;
+    max-width: 440px;
+    margin-bottom: 20px;
     position: relative;
-    max-width: 400px;
-    word-wrap: break-word;
 
     &:hover {
       #{$self}__icon-actions {
-        cursor: pointer;
         display: block;
       }
     }
   }
 
   &__avatar {
+    padding-bottom: 0px;
+    margin-right: 10px;
     display: flex;
     flex-direction: column-reverse;
+    align-items: center;
     .avatar {
       border-radius: 50px;
-      width: 50px;
-      height: 50px;
-      margin-right: 13px;
-      margin-bottom: 0px;
+      width: 40px;
+      height: 40px;
       font-size: 14px;
       line-height: 31px;
     }
   }
 
   &__bubble {
-    background: #3674ff;
+    background: $blue;
     box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.196733);
     border-radius: 12px 12px 12px 0px;
     padding: 15px;
-    margin-bottom: 8px;
-    cursor: pointer;
-    min-width: 100px;
   }
 
   &__date {
     font-size: 12px;
     opacity: 0.5;
-    margin-bottom: 20px;
-    margin-right: 10px;
-    margin-left: 10px;
   }
 
   &__text {
     color: #fff;
     line-height: 20px;
-    cursor: pointer;
   }
 
   &__attachments {
     display: flex;
     margin-bottom: 5px;
+    margin-top: 10px;
     order: 1;
     &-item {
       $item: &;
@@ -172,34 +167,27 @@
     }
   }
 
+
+
+
+
+
+
   &--isme {
     display: flex;
     flex-direction: row-reverse;
-    text-align: right;
-    .message__date{
-      text-align: right;
-    }
-
-
-    .avatar {
-      margin-left: 13px;
-      margin-right: 0;
-    }
 
     #{$self}__content {
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       flex-direction: row-reverse;
-      .message__attachments{
-        flex-direction: row-reverse;
-      }
     }
 
     #{$self}__avatar {
-      img {
-        margin-right: 0;
-        margin-left: 13px;
-        margin-bottom: 0px;
-      }
+      flex-direction: column-reverse;
+      align-items: center;
+      margin-left: 10px;
+      margin-bottom: 0px;
+      padding-bottom: 0px;
     }
 
     #{$self}__info {
@@ -209,12 +197,11 @@
     }
 
     #{$self}__bubble {
-      background: #E94D4C;
+      background: #ff4f4f;
+      border: 1px solid #ececec;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.0220444);
       border-radius: 12px 12px 0px 12px;
-      
       order: 2;
-      text-align: left;
       #{$self}__text {
         color: #fff;
       }
@@ -223,6 +210,7 @@
 
   &--is-typing {
     #{$self}__bubble {
+      background-color: $message-typing-blue;
       box-shadow: 0px 5px 5px rgba(54, 116, 255, 0.04);
       padding: 15px 18px;
       margin-bottom: 0;
@@ -231,6 +219,7 @@
 
   &--image {
     #{$self}__attachments {
+      margin-top: 10px;
       &-item {
         img {
           width: 150px;
@@ -245,7 +234,7 @@
       height: 8px;
       width: 8px;
       border-radius: 50%;
-      background: #ebf0fc;
+      background: $message-typing-circle;
       display: inline-block;
       margin-right: 8px;
       animation: 0.8s typingAnimation infinite ease-out 0.1s;

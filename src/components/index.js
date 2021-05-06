@@ -8,4 +8,7 @@ export { default as ChatInput } from "./ChatInput";
 export { default as MyData } from "./MyData";
 export { default as Status } from "./Status";
 export { default as Sidebar } from "./Sidebar";
-export { default as Messages } from "./Message";
+export { default as Messages } from "./Messages";
+export { default as IconReaded } from "./IconReaded";
+export { default as Time } from "./Time";
+export { default as MessageAudio } from "./Audio";

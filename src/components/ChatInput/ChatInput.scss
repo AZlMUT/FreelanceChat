@@ -1,60 +1,24 @@
-$black: #000000;
-$cornflower-lilac: #ffaea9;
-$salmon: #ff7b73;
-$white: #ffffff;
-$your-pink: #ffcccc;
-
-
-.c-form__input,
-.c-form__button {
+.c-form{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
   padding: 0px;
+}
+
+
+.c-form__input{
   font: inherit;
   outline: 0;
-  border-radius: 5em;
+  border-radius: 10px;
   border-width: 1px;
-}
-
-.c-form__input,
-.c-form__buttonLabel {
-  font-size: 1.2em;
+  font-size: 15px;
   opacity: 1;
   visibility: visible;
-  transition: 0s;
   font-weight: 700;
-}
-
-.c-form__input {
-  color: $your-pink;
   height: 50px;
-  width: 100%;
-  padding-left: 10px;
-
-  &::placeholder {
-      color: currentColor;
-  }
-  &:required:valid {
-    color: $salmon;
-
-    + .c-form__buttonLabel {
-        color: $white;
-
-        &::before {
-            pointer-events: initial;
-        }
-    }
-}
+  width: 90%;
+  padding-left: 20px;
+  color: #222222;
 }
 
-
-.c-form__buttonLabel {
-  color: $cornflower-lilac;
-  position: absolute;
-  &::before {
-      content: '';
-      left:-10px;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      cursor: pointer;
-  }
-}

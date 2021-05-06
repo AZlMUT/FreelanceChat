@@ -1,11 +1,13 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
-import distanceInWordsToNow from "date-fns/distance_in_words_to_now";
+import {format } from 'date-fns'
 import ruLocale from "date-fns/locale/ru";
 
 const Time = ({ date }) => (
   <Fragment>
-    {distanceInWordsToNow(date, { addSuffix: true, locale: ruLocale })}
+    {
+      format(new Date(date), "HH:mm")
+    }
   </Fragment>
 );
 

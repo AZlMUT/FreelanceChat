@@ -1,37 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-
-import { generateAvatarFromHash } from "utils/helpers";
-
 import "./Avatar.scss";
 
-const Avatar = ({ user }) => {
-  if (user.avatar) {
-    return (
-      <img
-        className="avatar"
-        src={user.avatar}
-        alt={`Avatar ${user.fullname}`}
-      />
-    );
-  } else {
-    const { color, colorLighten } = generateAvatarFromHash(user._id);
-    const firstChar = user.fullname[0].toUpperCase();
-    return (
-      <div
-        style={{
-          background: `linear-gradient(135deg, ${color} 0%, ${colorLighten} 96.52%)`
-        }}
-        className="avatar avatar--symbol"
-      >
-        {firstChar}
-      </div>
-    );
-  }
+const ava = (id) => {
+  //const id = Math.random(0,1000);
+  return `https://source.unsplash.com/100x100/?random=${id}&face,portrait,family,girl`;
+};
+
+const Avatar = ({ user, avatar }) => {
+  return (
+    <img 
+    className="avatar" 
+    src={avatar} 
+    alt={`Avatar`} 
+    />
+  );
 };
 
 Avatar.propTypes = {
-  className: PropTypes.string
+  className: PropTypes.string,
 };
 
 export default Avatar;
