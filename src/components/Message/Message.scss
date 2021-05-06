@@ -192,8 +192,18 @@
 
     #{$self}__info {
       display: flex;
-      align-items: center;
+      align-items: right;
       text-align: right;
+      flex-direction: column-reverse;
+    }
+
+    #{$self}__attachments {
+      display: flex;
+      flex-direction: row;
+      margin-bottom: 5px;
+      margin-top: 10px;
+      order: 1;
+      
     }
 
     #{$self}__bubble {

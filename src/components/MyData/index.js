@@ -16,6 +16,7 @@ const MyData = {
       text: "Какую фотку поставить на аву?",
       date: "2020-12-04 16:15:00",
       isMe: true,
+      readed: true,
       attachments:[
         {
           filename: "1",
@@ -69,6 +70,7 @@ const MyData = {
     
     {
       avatar: ava(1),
+      readed: false,
       text: "Договорились)))",
       date: "2020-12-04 16:25:00",
       isMe: true,

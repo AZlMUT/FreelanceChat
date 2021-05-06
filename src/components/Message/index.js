@@ -51,7 +51,7 @@ const Message = ({
   return (
     <div
       className={classNames('message', {
-        'message--isme': !isMe,
+        'message--isme': isMe,
         'message--is-typing': isTyping,
         'message--is-audio': isAudio(attachments),
         'message--image': !isAudio(attachments) && attachments && attachments.length === 1 && !text,
